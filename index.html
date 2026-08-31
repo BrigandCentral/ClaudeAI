@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Owen Archer — Author</title>
+<meta name="description" content="Owen Archer, author of The Autoimmune Carnivore Protocol — a 16-chapter elimination-and-reintroduction guide for autoimmune disease, plus free printable extras for readers.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper: #E5E2DB;
+    --paper-panel: #D8D4CA;
+    --ink: #23262A;
+    --ink-dim: #5C6063;
+    --cyan: #1E7C8C;
+    --cyan-bright: #2FA5B8;
+    --cyan-pale: #CFE9EC;
+    --dark-panel: #16232A;
+    --dark-panel-deep: #101A1F;
+    --paper-text: #E9EAE6;
+    --paper-text-dim: #9FB1B5;
+    --hair: rgba(35,38,42,0.14);
+    --hair-on-dark: rgba(233,234,230,0.14);
+    --max-w: 1080px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter', sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.display{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    letter-spacing:-0.01em;
+    color:var(--ink);
+  }
+  a{color:inherit;}
+  .wrap{max-width:var(--max-w); margin:0 auto; padding:0 28px;}
+  @media (min-width:900px){ .wrap{padding:0 48px;} }
+
+  /* focus visibility */
+  a:focus-visible, button:focus-visible, summary:focus-visible{
+    outline:2px solid var(--cyan);
+    outline-offset:3px;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation:none !important; transition:none !important;}
+  }
+
+  /* ---------- Header ---------- */
+  header{
+    position:sticky; top:0; z-index:20;
+    background:rgba(229,226,219,0.88);
+    backdrop-filter: blur(6px);
+    border-bottom:1px solid var(--hair);
+  }
+  .nav{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:18px 0;
+  }
+  .wordmark{
+    font-family:'Fraunces', serif;
+    font-size:1.15rem;
+    font-style:italic;
+    color:var(--ink);
+    text-decoration:none;
+  }
+  .nav-links{display:flex; gap:28px; list-style:none; margin:0; padding:0;}
+  .nav-links a{
+    font-size:0.92rem;
+    text-decoration:none;
+    color:var(--ink-dim);
+    transition:color 0.2s ease;
+  }
+  .nav-links a:hover{color:var(--cyan);}
+  @media (max-width:640px){ .nav-links{gap:16px; font-size:0.82rem;} }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    padding:96px 0 84px;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero::before{
+    content:"";
+    position:absolute; inset:0;
+    background:
+      radial-gradient(ellipse 700px 400px at 85% -10%, rgba(47,165,184,0.16), transparent 60%);
+    pointer-events:none;
+  }
+  .hero-grid{
+    display:grid; grid-template-columns:1fr; gap:48px; align-items:center; position:relative;
+  }
+  @media (min-width:880px){
+    .hero-grid{grid-template-columns: 1.1fr 0.9fr;}
+  }
+  .kicker{
+    font-size:0.95rem;
+    color:var(--cyan);
+    margin:0 0 18px;
+    font-style:italic;
+    font-family:'Fraunces', serif;
+  }
+  .hero h1{
+    font-size:clamp(2.4rem, 5vw, 3.6rem);
+    line-height:1.08;
+    margin:0 0 22px;
+  }
+  .hero p.lede{
+    font-size:1.08rem;
+    color:var(--ink-dim);
+    max-width:46ch;
+    margin:0 0 32px;
+  }
+  .btn-row{display:flex; gap:16px; flex-wrap:wrap;}
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    padding:13px 26px;
+    border-radius:2px;
+    font-size:0.94rem;
+    text-decoration:none;
+    border:1px solid transparent;
+    transition:transform 0.15s ease, background 0.2s ease, border-color 0.2s ease;
+  }
+  .btn-primary{
+    background:var(--cyan);
+    color:var(--paper-text);
+    font-weight:600;
+  }
+  .btn-primary:hover{background:var(--cyan-bright); transform:translateY(-1px);}
+  .btn-secondary{
+    border-color:var(--ink-dim);
+    color:var(--ink);
+  }
+  .btn-secondary:hover{border-color:var(--cyan); color:var(--cyan);}
+
+  /* Hero portrait frame — simple, tasteful placeholder */
+  .portrait-frame{
+    aspect-ratio: 4/5;
+    border:1px solid var(--hair);
+    background:
+      linear-gradient(160deg, #D8D4CA 0%, #C7D6D8 100%);
+    display:flex; align-items:center; justify-content:center;
+    position:relative;
+    max-width:340px;
+    margin:0 auto;
+  }
+  .portrait-frame span{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    color:var(--ink-dim);
+    font-size:0.85rem;
+    text-align:center;
+    padding:0 20px;
+  }
+  .portrait-frame::after{
+    content:"";
+    position:absolute; inset:14px;
+    border:1px solid var(--hair);
+    pointer-events:none;
+  }
+
+  /* ---------- Section shell ---------- */
+  section{padding:80px 0;}
+  .section-head{margin-bottom:44px; max-width:60ch;}
+  .section-head h2{
+    font-size:clamp(1.7rem, 3vw, 2.2rem);
+    margin:0 0 14px;
+  }
+  .section-head p{color:var(--ink-dim); margin:0; font-size:1rem;}
+  .rule{
+    border:none; border-top:1px solid var(--hair);
+    margin:0;
+  }
+
+  /* ---------- Books (the shelf) ---------- */
+  .shelf{
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap:40px;
+    margin-bottom:6px;
+    align-items:start;
+  }
+  .book{
+    display:flex; flex-direction:column;
+  }
+  .book-cover{
+    aspect-ratio: 2/3;
+    position:relative;
+    box-shadow: 8px 10px 24px rgba(0,0,0,0.35);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    display:flex; flex-direction:column; justify-content:space-between;
+    padding:26px 22px;
+    border:1px solid rgba(0,0,0,0.25);
+  }
+  .book:nth-child(1) .book-cover{ background: linear-gradient(155deg, #234049 0%, #142529 100%); }
+  .book:nth-child(2) .book-cover{ background: linear-gradient(155deg, #2C3438 0%, #181D20 100%); }
+  .book:nth-child(3) .book-cover{ background: linear-gradient(155deg, #3A2E36 0%, #1E171B 100%); }
+  .book:nth-child(4) .book-cover{ background: linear-gradient(155deg, #274045 0%, #121F22 100%); }
+  .book-cover:hover{ transform: translateY(-6px) rotate(-0.4deg); box-shadow: 10px 16px 30px rgba(0,0,0,0.45); }
+  .book-mark{
+    width:26px; height:3px; background:var(--cyan-bright);
+  }
+  .book-cover h3{
+    font-size:1.28rem;
+    line-height:1.2;
+    margin:0;
+    color:var(--paper-text);
+  }
+  .book-cover .genre{
+    font-family:'Inter', sans-serif;
+    font-size:0.72rem;
+    color:var(--paper-text-dim);
+    text-transform:lowercase;
+    letter-spacing:0.02em;
+  }
+  .book-meta{margin-top:18px;}
+  .book-meta p{
+    color:var(--ink-dim);
+    font-size:0.93rem;
+    margin:0 0 14px;
+  }
+  .book-links{display:flex; gap:18px; align-items:center; flex-wrap:wrap;}
+  .book-links a{
+    font-size:0.88rem;
+    text-decoration:none;
+    border-bottom:1px solid var(--cyan);
+    padding-bottom:1px;
+    color:var(--cyan);
+  }
+  .book-links a:hover{color:var(--ink);}
+
+  /* ---------- Chapter list (inside the book card) ---------- */
+  .chapter-list{margin-top:18px;}
+  .chapter-list summary{
+    cursor:pointer;
+    font-size:0.88rem;
+    color:var(--cyan);
+    list-style:none;
+    display:inline-flex; align-items:center; gap:6px;
+  }
+  .chapter-list summary::-webkit-details-marker{display:none;}
+  .chapter-list summary::before{
+    content:"+";
+    font-family:'Fraunces', serif;
+    font-size:1rem;
+  }
+  .chapter-list[open] summary::before{content:"–";}
+  .chapter-list summary:hover{color:var(--ink);}
+  .chapter-list ol{
+    margin:14px 0 0;
+    padding-left:1.3em;
+    color:var(--ink-dim);
+    font-size:0.88rem;
+    display:grid;
+    gap:7px;
+  }
+  .chapter-list ol li::marker{color:var(--cyan);}
+
+  /* ---------- Printables ---------- */
+  .printables{
+    background:var(--dark-panel);
+    color:var(--paper-text);
+    border-top:1px solid var(--hair-on-dark);
+    border-bottom:1px solid var(--hair-on-dark);
+  }
+  .printables .section-head h2{ color:var(--paper-text); }
+  .printables .section-head p{ color:var(--paper-text-dim); }
+  .print-list{
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap:1px;
+    background:var(--hair-on-dark);
+    border:1px solid var(--hair-on-dark);
+  }
+  .print-item{
+    background:var(--dark-panel-deep);
+    padding:28px;
+    display:flex; flex-direction:column; gap:14px;
+  }
+  .print-item .file-tag{
+    font-size:0.72rem;
+    color:var(--cyan-bright);
+    font-family:'Inter', sans-serif;
+  }
+  .print-item h3{
+    font-size:1.1rem; margin:0; font-weight:500;
+    color:var(--paper-text);
+  }
+  .print-item p{
+    color:var(--paper-text-dim);
+    font-size:0.9rem;
+    margin:0;
+    flex-grow:1;
+  }
+  .download-link{
+    display:inline-flex; align-items:center; gap:8px;
+    font-size:0.88rem;
+    text-decoration:none;
+    color:var(--cyan-bright);
+    width:fit-content;
+  }
+  .download-link:hover{color:var(--paper-text);}
+  .download-link svg{flex-shrink:0;}
+
+  /* ---------- About ---------- */
+  .about-grid{
+    display:grid; gap:40px;
+    grid-template-columns:1fr;
+  }
+  @media (min-width:820px){
+    .about-grid{grid-template-columns: 0.85fr 1.15fr;}
+  }
+  .about-grid blockquote{
+    margin:0;
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-size:1.25rem;
+    line-height:1.5;
+    color:var(--ink);
+    border-left:2px solid var(--cyan);
+    padding-left:22px;
+  }
+  .about-grid .bio p{
+    color:var(--ink-dim);
+    margin:0 0 16px;
+    max-width:62ch;
+  }
+
+  /* ---------- Newsletter / footer ---------- */
+  .newsletter{
+    text-align:left;
+    padding:70px 0;
+  }
+  .newsletter h2{font-size:1.7rem; margin:0 0 10px;}
+  .newsletter p{color:var(--ink-dim); margin:0 0 26px; max-width:50ch;}
+  .form-row{
+    display:flex; gap:12px; flex-wrap:wrap; max-width:460px;
+  }
+  .form-row input[type="email"]{
+    flex:1; min-width:200px;
+    background:transparent;
+    border:1px solid var(--ink-dim);
+    color:var(--ink);
+    padding:13px 16px;
+    font-family:'Inter', sans-serif;
+    font-size:0.94rem;
+    border-radius:2px;
+  }
+  .form-row input[type="email"]::placeholder{color:var(--ink-dim); opacity:0.7;}
+  .form-row input[type="email"]:focus{outline:2px solid var(--cyan); outline-offset:2px;}
+
+  footer{
+    border-top:1px solid var(--hair);
+    padding:36px 0;
+    font-size:0.85rem;
+    color:var(--ink-dim);
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px;
+  }
+  footer a{text-decoration:none; color:var(--ink-dim);}
+  footer a:hover{color:var(--cyan);}
+
+  /* one deliberate load moment */
+  .reveal{
+    opacity:0;
+    animation: settle 0.7s ease forwards;
+  }
+  .book:nth-child(1){animation-delay:0.05s;}
+  .book:nth-child(2){animation-delay:0.15s;}
+  .book:nth-child(3){animation-delay:0.25s;}
+  .book:nth-child(4){animation-delay:0.35s;}
+  @keyframes settle{
+    from{opacity:0; transform:translateY(14px);}
+    to{opacity:1; transform:translateY(0);}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="nav wrap">
+    <a href="#top" class="wordmark">Owen Archer</a>
+    <ul class="nav-links">
+      <li><a href="#books">Books</a></li>
+      <li><a href="#printables">Reader Extras</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#newsletter">Newsletter</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="top">
+
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="kicker">Practical protocols for readers managing autoimmune disease through diet</p>
+        <h1>A step-by-step elimination protocol, built from what actually worked — not theory.</h1>
+        <p class="lede">Owen Archer writes structured, phase-by-phase guides for testing what a body can and can't tolerate. His first book, The Autoimmune Carnivore Protocol, is now on Amazon.</p>
+        <div class="btn-row">
+          <a href="#books" class="btn btn-primary">See the books</a>
+          <a href="#printables" class="btn btn-secondary">Free reader extras</a>
+        </div>
+      </div>
+      <div class="portrait-frame">
+        <span>Author photo<br>goes here</span>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule wrap">
+
+  <section id="books">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>The books</h2>
+        <p>The Autoimmune Carnivore Protocol is available now on Amazon in paperback and Kindle editions.</p>
+      </div>
+      <div class="shelf">
+
+        <div class="book reveal">
+          <div class="book-cover">
+            <div>
+              <div class="book-mark"></div>
+            </div>
+            <div>
+              <p class="genre">a health & nutrition guide</p>
+              <h3>The Autoimmune Carnivore Protocol</h3>
+            </div>
+          </div>
+          <div class="book-meta">
+            <p>A 16-chapter, phase-by-phase protocol — a 72-hour reset for a first felt win, a 30-day strict elimination, one-food-at-a-time reintroduction with a full delayed-reaction window, and a Personal Food Map built from your own data instead of guesswork.</p>
+            <div class="book-links">
+              <a href="#" target="_blank" rel="noopener">Buy on Amazon</a>
+              <a href="#printables">Free printable kit ↓</a>
+            </div>
+            <details class="chapter-list">
+              <summary>See all 16 chapters</summary>
+              <ol>
+                <li>The Diagnosis You Already Know</li>
+                <li>Your First Win: The 72-Hour Reset</li>
+                <li>Why Reintroduction Never Gives You a Straight Answer</li>
+                <li>Mapping Your Flare Fingerprint</li>
+                <li>The Strict Elimination Phase: Your 30-Day Protocol</li>
+                <li>Troubleshooting Elimination — Stalls, Flares, and Cravings</li>
+                <li>The Reintroduction Protocol — The Piece Everyone Skips</li>
+                <li>The Reintroduction Tracker &amp; Reaction Decision Tree</li>
+                <li>Building Your Personal Food Map</li>
+                <li>Meal Planning &amp; Batch Cooking for Flare-Proof Weeks</li>
+                <li>Core Recipes: Staples for Every Phase</li>
+                <li>Eating Out, Travel, and Social Situations</li>
+                <li>When Progress Stalls: Advanced Troubleshooting</li>
+                <li>Medication, Labs, and Talking to Your Doctor</li>
+                <li>Living Carnivore for Life: Cycling, Expanding, and Maintenance</li>
+                <li>Your Next 90 Days</li>
+              </ol>
+            </details>
+          </div>
+        </div>
+
+        <div class="book reveal">
+          <div class="book-cover">
+            <div>
+              <div class="book-mark"></div>
+            </div>
+            <div>
+              <p class="genre">coming soon</p>
+              <h3>Beyond the Protocol: Expanding Your Plate for Life</h3>
+            </div>
+          </div>
+          <div class="book-meta">
+            <p>The follow-up — for readers who did everything right and are still hitting a wall. Picks up exactly where the first book's 90-day roadmap ends: hormone cycles, histamine load, and how to keep widening your Safe column, carefully, for years instead of months.</p>
+            <div class="book-links">
+              <a href="#newsletter">Get early access ↓</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="printables" class="printables">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Free for readers</h2>
+        <p>Printable extras to go with the books — reading group guides, character maps, and short bonus material. Every download is free, no email required.</p>
+      </div>
+      <div class="print-list">
+
+        <div class="print-item">
+          <span class="file-tag">PDF · Free download</span>
+          <h3>The Reader's Field Kit</h3>
+          <p>A free printable companion to The Autoimmune Carnivore Protocol: a one-page quick-start checklist, three blank copies of the book's repeat-use worksheets, a 20-item annotated resource list, and a preview of a chapter cut from the final draft.</p>
+          <a class="download-link" href="TheReadersFieldKitPrintables.pdf" download>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 1v9m0 0L4.5 6.5M8 10l3.5-3.5M2 12.5V14a1 1 0 001 1h10a1 1 0 001-1v-1.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Download PDF
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="wrap about-grid">
+      <blockquote>"This isn't a diet book. It's the protocol I wish someone had handed me on day one — in order, with room for when it doesn't go the way the chapter says it will."</blockquote>
+      <div class="bio">
+        <p>Owen Archer writes practical, structured protocols for people managing autoimmune illness through diet — built around elimination and reintroduction, not a single miracle food. His first book, The Autoimmune Carnivore Protocol, walks readers through a 16-chapter, phase-by-phase process for testing what their own body can and can't tolerate.</p>
+        <p>He also builds the free printable tools that go with each book — checklists, trackers, and worksheets meant to be lived with, not just read once. This is his author site, home to his books and the resources written to go alongside them.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="newsletter">
+    <div class="wrap">
+      <h2>Hear about new books first</h2>
+      <p>No spam, no schedule — just a note when Beyond the Protocol opens for early readers, or a new printable goes up.</p>
+      <form class="form-row" onsubmit="event.preventDefault(); alert('Connect this form to your email provider (e.g. Mailchimp, Buttondown) to start collecting signups.');">
+        <input type="email" placeholder="you@email.com" required aria-label="Email address">
+        <button type="submit" class="btn btn-primary">Subscribe</button>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer class="wrap">
+  <span>© 2026 Owen Archer</span>
+  <span><a href="mailto:hello@owenarcher.com">hello@owenarcher.com</a></span>
+</footer>
+
+</body>
+</html>
